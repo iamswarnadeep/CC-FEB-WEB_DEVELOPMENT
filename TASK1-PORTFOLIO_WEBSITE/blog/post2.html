@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>An Introduction to Training Theory for Neural Networks</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="../assets/png/logo.png"
+              alt="Swarnadeep Karmakar Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Swarnadeep Karmakar</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="../index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../blog" class="header__link"> Blog </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="../assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="../assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="../index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../blog"> Blog </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-details__showcase-img-cont">
+            <br><br><br>
+            <img
+              src="https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/202011/MIT-Network-Confidence-01-Press_0.jpg"
+              alt="Project Image"
+              class="project-details__showcase-img"
+            />
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">An Introduction to Training Theory for Neural Networks</h3>
+              <div class="project-details__desc-para">
+<!--START-->
+
+              <h3>Training: Theory vs. Practice</h3>
+<p>At first glance, neural-network training seems fairly straightforward. When we&rsquo;re working with a simple network (such as the single-layer Perceptron shown below), the math required for training is certainly not overwhelming, the network itself can be implemented in a relatively short program written in common languages such as C or Python, and the training process doesn&rsquo;t require excessive amounts of computational time.</p>
+<p>Also, the general concept is reminiscent of the settling action associated with <a href="https://www.allaboutcircuits.com/technical-articles/negative-feedback-part-1-general-structure-and-essential-concepts/" target="_blank">negative feedback</a>: we apply an input, produce an output, compare the produced output to the expected output, and feed that information back into the network in a way that allows the weights to gradually converge on values that are appropriate for the task at hand.</p>
+<p>&nbsp;</p>
+<p style="text-align:center"><img loading="lazy" alt="" src="https://www.allaboutcircuits.com/uploads/articles/an-introduction-to-training-theory-for-neural-networks_rk_aac_image1.jpg" style="border:solid 1px #CDCDCD; height:384px; width:696px" /></p>
+<h5 style="text-align:center"><em>A single-layer Perceptron neural network.</em></h5>
+<p>&nbsp;</p>
+<p>However, as you probably already know or have already guessed, there is quite a bit of theory associated with the training of artificial neural networks&mdash;do a search for &ldquo;neural network training&rdquo; in Google Scholar and you&rsquo;ll get a good sample of the research that has been conducted in this area. One title that caught my eye was &ldquo;A simple lemma on greedy approximation in Hilbert space and convergence rates for projection pursuit regression and neural network training.&rdquo; If you know what that means, you&rsquo;re several steps ahead of me and should probably be writing your own articles rather than reading mine.</p>
+<p>Fortunately, I won&rsquo;t be quoting from any academic publications in this article. Our objective at this point is to understand one foundational concept, namely, error minimization.</p>
+<p>&nbsp;</p>
+<h3>Perceptron as Universal Approximator</h3>
+<p>A neural network can perform classification because it automatically finds and implements (via training) a mathematical relationship between input data and output values. In mathematical terminology, we use the word &ldquo;function&rdquo; to identify an input&ndash;output relationship, and we often express functions symbolically as f(x), e.g., f(x) = sin(x). Thus, x represents the input data, and f(x) is set equal to the procedure that we use when we want the function to operate on the input and produce an output.</p>
+<p>A Perceptron that includes an additional layer of nodes (i.e., more than just the input and output layer) is called a multilayer Perceptron, or MLP. These nodes constitute a <em>hidden</em> layer, because they aren&rsquo;t directly &ldquo;visible&rdquo; from the input side or the output side. This architecture is shown in the diagram below and will be explored thoroughly in future articles.</p>
+<p>&nbsp;</p>
+<p style="text-align:center"><img loading="lazy" alt="" src="https://www.allaboutcircuits.com/uploads/articles/an-introduction-to-training-theory-for-neural-networks_rk_aac_image2.jpg" style="border:solid 1px #CDCDCD; height:478px; width:699px" /></p>
+<p style="text-align:center">&nbsp;</p>
+<p>A multilayer Perceptron is considered a universal approximator. There are various nuances associated with this concept, but the general idea is that the math performed by the network allows for immense flexibility in the overall function&mdash;I mean function as in f(x), i.e., the relationship between input and output&mdash;created by the network&rsquo;s mathematical operations.</p>
+<p>When the network first starts training, random values have been assigned to the weights, and consequently the network&rsquo;s f(x)&mdash;we&rsquo;ll call this f<sub>NN</sub>(x)&mdash;is not at all consistent with the real relationship, f<sub>REAL</sub>(x), between input and output. During training, the network generates beneficial adjustments in weight values by looking at error information fed back from the output, and f<sub>NN</sub>(x) gradually becomes more and more consistent with f<sub>REAL</sub>(x), kind of like a precise reflection that slowly appears as condensation evaporates from a mirror. (<strong>Note</strong>: In this case, the symbol x doesn&rsquo;t represent <em>one variable</em>, as though the dimensionality of the network&rsquo;s input layer is one. It represents input data in a generic way. For example, x could be a 50-element vector.)&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<h3>The Error Bowl</h3>
+<p>Let&rsquo;s assume that we&rsquo;re working with a neural network that has two weighted connections leading to a single output node. If we&rsquo;re training, we know the correct output value, and consequently we can calculate the error produced by this output node. Furthermore, we can visualize the error using a three-dimensional plot: the two inputs correspond to the x-axis and the y-axis, and the error corresponds to the z-axis.</p>
+<p>The fundamental idea here is that each combination of input weights and output error is like a point in three-dimensional space. As the weights are modified, the x and y components of the point change, and the z component will change as well if the weight modification produces a change in error. As the weights improve, the error decreases toward zero, and this is represented by the three-dimensional error bowl shown below.</p>
+<p>&nbsp;</p>
+<p style="text-align:center"><img loading="lazy" alt="" src="https://www.allaboutcircuits.com/uploads/articles/an-introduction-to-training-theory-for-neural-networks_rk_aac_image3.jpg" style="border:solid 1px #CDCDCD; height:461px; width:694px" /></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>The training procedure is essentially a quest for the bottom of that bowl, where z = 0, because if z = 0, the output produced by the node is equal to the expected output. As the weights are gradually adjusted during training, the point defined by the two weights and the error is moving along the surface of that bowl, hopefully heading downward.&nbsp;</p>
+<p>This visual analogy brings us back to the concept of function approximation: descent toward the minimum error occurs as the weights are changing, and the changes in the weights are also what makes f<sub>NN</sub>(x) gradually resemble f<sub>REAL</sub>(x). To summarize, then, training forces the network to modify its weights in a way that results in minimization of the error function and that causes the mathematical operations of the overall network to approximate the mathematical relationship between input and output.</p>
+<p>&nbsp;</p>
+<h3>Conclusion</h3>
+<p>I hope that this article has given you a more thorough understanding of neural-network training. In the next article, we&rsquo;ll continue this topic with a discussion of learning rate.</p>
+
+<!--END-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/twitter-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/yt-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon main-footer__icon--mr-none"
+                  src="../assets/png/insta-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Swarnadeep Karmakar</h4>
+            <p class="main-footer__short-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
+              tempora explicabo quae quod deserunt
+            </p>
+          </div>
+        </div>
+
+        <div class="main-footer__lower">
+          &copy; Copyright 2023 | Made by
+          <a rel="noreferrer" target="_blank" href="https://www.swarnadeep.xyz"
+            >Swarnadeep Karmakar</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="../index.js"></script>
+  </body>
+</html>

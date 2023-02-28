@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>What is Machine Learning? An Intro to ML Basics</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="../assets/png/logo.png"
+              alt="Swarnadeep Karmakar Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Swarnadeep Karmakar</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="../index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../blog" class="header__link"> Blog </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="../index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="../assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="../assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="../index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../blog"> Blog </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="../index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-details__showcase-img-cont">
+            <br><br><br>
+            <img
+              src="https://www.fsm.ac.in/blog/wp-content/uploads/2022/08/ml-e1610553826718.jpg"
+              alt="Project Image"
+              class="project-details__showcase-img"
+            />
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">What is Machine Learning? An Intro to ML Basics</h3>
+              <div class="project-details__desc-para">
+<!--START-->
+
+              <p>Machine learning is an ever-present and often misunderstood technological concept. The practice, which is the science of using complex processing and mathematical techniques to enable computers to find correlations between large swaths of inputs and output data has been in our collective consciousness of technologies for decades. In recent years, the science has exploded, enabled by improvements in:</p>
+<ul>
+<li>Computing power</li>
+<li>Parallel processing enabled by graphics processing unit (GPU) architectures</li>
+<li>Cloud computing for large-scale workloads</li>
+</ul>
+<p>In fact, the area has been so focused on desktop and cloud-based use that many embedded engineers don&rsquo;t give much thought to how ML affects them. And for the most part, it hasn&rsquo;t.</p>
+<p>However, with the advent of <a href="https://www.allaboutcircuits.com/technical-articles/what-is-tinyml/" target="_blank">TinyML</a>&nbsp;or tiny machine learning&nbsp;(machine learning on constrained devices like microcontrollers and single-board computers), ML has become relevant to engineers of all types, including those working on embedded applications. Adding to this, even if you&rsquo;re familiar with TinyML, it&rsquo;s important to have a concrete understanding of machine learning in general.</p>
+<p>In this article, I&rsquo;ll provide an overview of machine learning, how it works, and why it matters to embedded engineers.</p>
+<p>&nbsp;</p>
+<h3>What is Machine Learning?</h3>
+<p>A subset of the field of artificial intelligence (AI), machine learning is a discipline focused on using mathematical techniques and large-scale data processing to build programs that can find relationships between input and output data.&nbsp;As an umbrella term, AI covers a broad domain in computer science focused on enabling machines to &ldquo;think&rdquo; and act without human intervention. It covers everything from &ldquo;general intelligence&rdquo; or the ability for a machine to think and act in the same way a human would, to specialized, task-oriented intelligence, which is where ML falls on the spectrum.</p>
+<p>One of the most powerful ways that I&rsquo;ve heard ML defined in the past is in comparison to the traditional, algorithmic approach used in classical computer programming. In classical computing, an engineer presents a computer with input data&mdash;for example, the numbers 2 and 4&mdash;as well as an algorithm for converting them into a needed output&mdash;for example, multiply x and y to make z. As a program runs, inputs are provided, and the algorithm is applied to produce outputs. This can be seen in Figure 1.</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" alt="In a classic approach, we supply a computer with input data and the algorithm and ask for an answer." src="https://www.allaboutcircuits.com/uploads/articles/Figure_1_revised_what_is_machine_learning.jpg" style="border:1px solid rgb(205, 205, 205)" /></p>
+<h5 style="text-align:center"><em><strong>Figure 1.</strong> In a classic approach, we supply a computer with input data and the algorithm and ask for an answer.</em></h5>
+<p>&nbsp;</p>
+<p>ML, on the other hand, is the process of presenting a computer with a set of inputs and outputs and asking the computer to identify the &ldquo;algorithm&rdquo;&mdash;or model, using ML parlance&mdash;that turns those inputs into outputs every time. Often, this requires a lot of inputs to ensure the model will properly identify the correct output every time.</p>
+<p>For example, in Figure 2,&nbsp;if I feed an ML system the numbers 2 and 2 and an expected output of 4, it might decide that the algorithm is to always add the two numbers together. But if I then provide the numbers 2 and 4 and the expected output of 8, the model will learn from two examples that the correct approach is to multiply the two provided numbers.</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" alt="With ML, we have the data (inputs) and answers (output) and need the computer to derive an algorithm of sorts by determining how the inputs and outputs relate in a way that is true for the entire data set." src="https://www.allaboutcircuits.com/uploads/articles/Figure_2_What_is_machine_learning.jpg" style="border:solid 1px #CDCDCD" /></p>
+<h5 style="text-align:center"><em><strong>Figure 2. </strong>With ML, we have the data (inputs) and answers (output) and need the computer to derive an algorithm of sorts by determining how the inputs and outputs relate in a way that is true for the entire data set.</em></h5>
+<p>&nbsp;</p>
+<p>Given that I am using a simple example to define a complex field, you might at this point ask: why one would bother to complicate the uncomplicated?&nbsp;Why not stick to our classical, algorithmic computing approaches?</p>
+<p>The answer is that the class of problems that tend toward machine learning often cannot be expressed via a purely algorithmic approach. There&rsquo;s no simple algorithm for giving a computer a picture and asking it to determine if it contains a cat or a human face. Instead, we leverage ML and give it thousands of pictures (as collections of pixels) with cats, and human faces, with neither, and a model develops by learning how to correlate those pixels and groups of pixels with the expected output.&nbsp;When the machine then sees new data, it infers an output based on all of the examples it has seen before. This part of the process, often called prediction or inference, is the magic of ML.</p>
+<p>It sounds complex because it is. In the world of embedded and Internet of Things (IoT) systems, ML is increasingly being leveraged to aid in areas like machine vision, anomaly detection, and predictive maintenance. In each of these areas, we collect mountains of data&mdash;images and video, accelerometer readings, sound, heat, and temperature&mdash;for the purpose of monitoring facilities, environments, or machines. However,&nbsp;we often struggle to turn that data into insight we can act on. A bar chart is nice, but when what we really want is the ability to anticipate that a machine needs service before it breaks and goes offline, simple algorithmic approaches won&rsquo;t do.</p>
+<p>&nbsp;</p>
+<h3>The Machine Learning Development Loop</h3>
+<p>Enter machine learning. Under the guidance of capable data scientists and ML engineers, the process starts with data. Namely, the mountains of data created by our embedded systems. The first step in the ML development process is to collect data and label it before it is fed into a model. Labeling is a critical classification step and is how we associate a set of inputs to the expected output.</p>
+<p>&nbsp;</p>
+<h4>Labeling and Data Collection in ML</h4>
+<p>For example, one set of accelerometer x, y, and z values might correspond to the machine being idle, another may mean the machine it is running fine, and a third might correspond to a problem. A high-level depiction can be seen in Figure 3.&nbsp;</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" alt="ML engineers use labels to classify data sets during the data-gathering process." src="https://www.allaboutcircuits.com/uploads/articles/Figure_3_what_is_machine_learning.jpg" style="border:solid 1px #CDCDCD" /></p>
+<h5 style="text-align:center"><em><strong>Figure 3.</strong> ML engineers use labels to classify data sets during the data-gathering process.</em></h5>
+<p>&nbsp;</p>
+<p>Data collection and labeling is a time-consuming process but is critical to get right. While there are several innovations in the ML space that leverage pre-trained models to offset some of the work and emerging tools to streamline data collection from real systems, this is a step that cannot be skipped. No ML model in the world can reliably tell you if your machine or device is running well or is about to break without seeing actual data from that machine or others like it.</p>
+<p>&nbsp;</p>
+<h4>Machine&nbsp;Learning&nbsp;Model Development, Training, Testing, Refining</h4>
+<p>After data collection, the next steps are model development, training, testing, and refinement. This phase is where a data scientist or engineer creates a program that ingests the mass of collected input data and transforms it into the expected outputs using one or more approaches. Explaining those approaches could fill volumes, but suffice it to say that most models perform a set of transformations (for example, vector and matrix multiplication) on their inputs. Additionally, they will adjust the weights of each and every input against each other in order to find a set of weights and functions that reliably correlate to the expected outputs.</p>
+<p>This phase of the process is often iterative.&nbsp;The engineer will adjust the model, the tools,&nbsp;and methods used, as well as the number of iterations to run during model training and other parameters to build something that reliably can correlate the input data to the correct outputs (aka, the labels). Once the engineer is happy with this correlation, they test the model using inputs not used in training to see how the model performs on unknown data. If the model underperforms on this new data, the engineer repeats the loop, shown in Figure 4, and refines the model further.</p>
+<p>&nbsp;</p>
+<p><img loading="lazy" alt="Model development is an iterative process with many steps, but it starts with data collection." src="https://www.allaboutcircuits.com/uploads/articles/Figure_4_what_is_machine_learning.png" style="border:solid 1px #CDCDCD" /></p>
+<h5 style="text-align:center"><em><strong>Figure 4.</strong> Model development is an iterative process with many steps, but it starts with data collection.</em></h5>
+<p>&nbsp;</p>
+<p>Once the model is ready, it is deployed and available for real-time prediction against new data. In traditional ML, the model is deployed to a cloud service so that it can be called by a running application that provides the needed inputs and receives an output from the model. The application might provide a picture and ask if a person is present, or a set of accelerometer readings, and ask the model if this set of readings corresponds with an idle, running, or broken machine.</p>
+<p>It&rsquo;s at this part of the process that TinyML is so important and so groundbreaking.</p>
+<p>&nbsp;</p>
+<h3>So Where Does TinyML Fit?</h3>
+<p>If it&rsquo;s not clear already, machine learning is a data-intensive process. When you are attempting to derive a model through correlation, you need a lot of data to feed that model. Hundreds of images or thousands of sensor readings. In fact, the process of model training is so intensive, and so specialized, that it&rsquo;s a resource hog for almost any <a href="https://www.allaboutcircuits.com/technical-articles/what-is-a-microarchitecture-processor-register-files-ARM-core/" target="_blank">central processing unit (CPU)</a>, no matter how high-powered. Instead, the vector and matrix-math operations so common in ML are not dissimilar from graphics processing applications, which is why GPUs have become such a popular choice for model development.</p>
+<p>Given the need for powerful compute, the cloud has become the de-facto place to offload the work of training models and hosting them for real-time prediction. While model training is, and remains the domain of the cloud, especially&nbsp;for embedded and IoT applications, the closer we can move our ability to make real-time predictions to the place where data is captured, the better our systems will be. We get the benefit of built-in security and low latency when running models on microcontrollers, as well as the ability to make decisions and take action in a local environment, without relying on an internet connection to do so.</p>
+<p>This is the domain of TinyML, where platform companies like <a href="https://edgeimpulse.com/" target="_blank">Edge Impulse</a> are building cloud-based tools for sensor data collection and ML architectures that output compact, efficient models purpose-built for <a href="https://www.allaboutcircuits.com/technical-articles/what-is-a-microcontroller-introduction-component-characteristics-component/" target="_blank">microcontroller units (MCUs)</a>. Where an increasing number of silicon vendors, from <a href="https://www.st.com/content/st_com/en.html" target="_blank">STMicroelectronics</a> to <a href="https://alifsemi.com/" target="_blank">Alif Semiconductor</a> are building chips with GPU-like compute capabilities that make them perfect for running ML workloads alongside your sensors, right where data is collected.</p>
+<p>For embedded and IoT engineers, there&rsquo;s never been a better time to explore the world of machine learning, from the cloud to the tiniest of devices. Our systems are only growing more complex and processing more data than ever. Bringing ML to the edge means we can deal with that data and make decisions even faster.</p>
+
+<!--END-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/linkedin-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/github-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/twitter-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon"
+                  src="../assets/png/yt-ico.png"
+                  alt="icon"
+                />
+              </a>
+              <a target="_blank" rel="noreferrer" href="#">
+                <img
+                  class="main-footer__icon main-footer__icon--mr-none"
+                  src="../assets/png/insta-ico.png"
+                  alt="icon"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Swarnadeep Karmakar</h4>
+            <p class="main-footer__short-desc">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit facilis
+              tempora explicabo quae quod deserunt
+            </p>
+          </div>
+        </div>
+
+        <div class="main-footer__lower">
+          &copy; Copyright 2023 | Made by
+          <a rel="noreferrer" target="_blank" href="https://www.swarnadeep.xyz"
+            >Swarnadeep Karmakar</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="../index.js"></script>
+  </body>
+</html>
